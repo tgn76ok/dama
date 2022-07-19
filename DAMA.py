@@ -8,7 +8,6 @@ pygame.init()
 LARGURA = 800
 ALTURA = 600
 
-BLOCKED, FREE, BLACK, BLACK_KING, WHITE, WHITE_KING = "X", " ", "p", "P", "b", "B"
 
 # INICIANDO PROGRAMAÇÃO DO DISPLAY
 tela = pygame.display.set_mode((830, 635))
