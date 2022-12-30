@@ -16,9 +16,7 @@ def pedras_brancas_possiveis_de_mover_sem_comer(matriz):
     matriz = list(matriz)
     
     pedras_brancas= list()
-    posicoes_possiveis_das_damas_brancas = list()
 
-    posicoes_possiveis_das_brancas = list()
     for linha in range(len(matriz)):
         for coluna in range(len(matriz)):
             if matriz[linha][coluna] == 'b':# posiçao de todas as brancas
@@ -52,9 +50,6 @@ def pedras_brancas_possiveis_de_mover_sem_comer(matriz):
                         
                         conjunto_de_damas_posivel_jogada = linha, coluna
                         
-                        conjunto_de_jogadas = linha1,coluna1
-                        if conjunto_de_jogadas  not in  posicoes_possiveis_das_damas_brancas:
-                            posicoes_possiveis_das_damas_brancas.append(conjunto_de_jogadas)
                             
                         if conjunto_de_damas_posivel_jogada not in pedras_brancas:
                             pedras_brancas.append(conjunto_de_damas_posivel_jogada)
@@ -209,7 +204,7 @@ def pode_comer_para_brancas(matriz):
             if matriz[linha][coluna] == 'b':# posiçao de todas as brancas
 
                 if coluna != 7 and linha != 0 :
-                    if matriz[linha-1][coluna+1] == 'p':
+                    if matriz[linha-1][coluna+1] in 'pP':
                         if coluna != 6 and linha != 1:
                             if matriz[linha-2][coluna+2] == ' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
@@ -218,16 +213,17 @@ def pode_comer_para_brancas(matriz):
                                     pedras_brancas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
       
                 if coluna != 0 and linha != 0:
-                    if matriz[linha-1][coluna-1] == 'p':
+                    if matriz[linha-1][coluna-1] in 'pP':
                         if coluna != 1 and linha != 1:
                             if matriz[linha-2][coluna-2] == ' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
 
                                 if conjunto_de_pedras_posivel_de_comer not in pedras_brancas_possiveis_de_comer:
                                     pedras_brancas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
-                            
                 if coluna != 7 and linha != 7:
-                    if matriz[linha+1][coluna+1] == 'p':
+                    
+                    if matriz[linha+1][coluna+1]  in 'pP':
+                        
                         if coluna != 6 and linha != 6:
                             if matriz[linha+2][coluna+2] == ' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
@@ -236,7 +232,7 @@ def pode_comer_para_brancas(matriz):
                                     pedras_brancas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
                             
                 if coluna != 0 and linha != 7:
-                    if matriz[linha+1][coluna-1] == 'p':
+                    if matriz[linha+1][coluna-1] in 'pP' :
                         if coluna != 1 and linha != 6:
                             if matriz[linha+2][coluna-2] ==' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
@@ -257,7 +253,7 @@ def posiçoes_possiveis_para_comer_brancas(matriz,posçoes_da_pedra):
     if matriz[linha][coluna] == 'b':# posiçao de todas as brancas
 
         if coluna != 7 and linha != 0 :
-            if matriz[linha-1][coluna+1] == 'p':
+            if matriz[linha-1][coluna+1] in 'pP':
                 if coluna != 6 and linha != 1:
                     if matriz[linha-2][coluna+2] == ' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha-2, coluna+2
@@ -271,7 +267,7 @@ def posiçoes_possiveis_para_comer_brancas(matriz,posçoes_da_pedra):
                             pedras_pretas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
 
         if coluna != 0 and linha != 0:
-            if matriz[linha-1][coluna-1] == 'p':
+            if matriz[linha-1][coluna-1] in 'pP':
                 if coluna != 1 and linha != 1:
                     if matriz[linha-2][coluna-2] == ' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha-2, coluna-2
@@ -285,7 +281,7 @@ def posiçoes_possiveis_para_comer_brancas(matriz,posçoes_da_pedra):
                             pedras_pretas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
                     
         if coluna != 7 and linha != 7:
-            if matriz[linha+1][coluna+1] == 'p':
+            if matriz[linha+1][coluna+1] in 'pP':
                 if coluna != 6 and linha != 6:
                     if matriz[linha+2][coluna+2] == ' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha+2, coluna+2
@@ -299,7 +295,7 @@ def posiçoes_possiveis_para_comer_brancas(matriz,posçoes_da_pedra):
                             pedras_pretas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
                     
         if coluna != 0 and linha != 7:
-            if matriz[linha+1][coluna-1] == 'p':
+            if matriz[linha+1][coluna-1] in 'pP':
                 if coluna != 1 and linha != 6:
                     if matriz[linha+2][coluna-2] ==' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha+2, coluna-2
@@ -434,63 +430,7 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
         
     return (pedras_pretas_posisao_de_comer,pedras_brancas_para_apagar)
 
-def posiçao_das_damas_brancas(matriz):
-    matriz = list(matriz)
-    
-    damas_brancas= list()
-    
-    posicoes_possiveis_das_damas_brancas = list()
-    for linha in range(len(matriz)):
-        for coluna in range(len(matriz)):
-            if matriz[linha][coluna] == 'B':# posiçao de todas as brancas
-                linha1 = linha
-                coluna1 = coluna
 
-                while (linha1 != 0 and linha1 !=7) or (coluna1 != 0 and coluna1 !=7):
-                    if matriz[linha1][coluna1] == ' ':#subir para direita
-                        
-                        conjunto_de_damas_posivel_jogada = linha, coluna
-                        
-                        conjunto_de_jogadas = linha1,coluna1
-                        if conjunto_de_jogadas  not in  posicoes_possiveis_das_damas_brancas:
-                            posicoes_possiveis_das_damas_brancas.append(conjunto_de_jogadas)
-                            
-                        if conjunto_de_damas_posivel_jogada not in pedras_brancas:
-                            pedras_brancas.append(conjunto_de_damas_posivel_jogada)
-                    else:
-                        break
-                        
-                    linha1-=1
-                    coluna1+=1
-                
-                        
-                            
-                # if coluna != 0 and linha != 0 :
-                #     if matriz[linha-1][coluna-1] == ' ':
-                        
-                #         conjunto_de_pedras_posivel_jogada = linha, coluna
-                        
-                        
-                #         conjunto_de_jogadas = linha-1,coluna-1
-                #         if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                #             posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
-                            
-                #         if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
-                #             pedras_brancas.append(conjunto_de_pedras_posivel_jogada)                
-                    
-                        
-                        
-                        
-    return pedras_brancas
-
-def comer_para_as_damas_brancas(matriz):
-    pass
-
-def posiçao_das_damas_pretas(matriz):
-    pass
-
-def comer_para_as_damas_pretas(matriz):
-    pass
 ja_comeu=False
 turno=0
 cont = 0
@@ -509,7 +449,7 @@ while True:
     pedra_para_comer_branca = pode_comer_para_brancas(matriz1)
     if ja_comeu and (len(pedra_para_comer_preta)==0 or len(pedra_para_comer_branca)==0): turno+=1;ja_comeu = False ;continue
 
-    os.system("cls")
+    
     print(f"-------------------------------------------")
     print(f"{matriz1[0]}\n{matriz1[1]}\n{matriz1[2]}\n{matriz1[3]}\n{matriz1[4]}\n{matriz1[5]}\n{matriz1[6]}\n{matriz1[7]}\n")
     if turno %2 ==0:
