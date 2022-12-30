@@ -1,12 +1,12 @@
 import os 
-matriz1 = [    ['b', ' ', 'p', ' ', 'p', ' ', 'p', ' '],
+matriz1 = [   ['p', ' ', 'p', ' ', 'p', ' ', 'p', ' '],
               [' ', 'p', ' ', 'p', ' ', 'p', ' ', 'p'],
               ['p', ' ', 'p', ' ', 'p', ' ', 'p', ' '],
               [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
               [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
               [' ', 'b', ' ', 'b', ' ', 'b', ' ', 'b'],
               ['b', ' ', 'b', ' ', 'b', ' ', 'b', ' '],
-              [' ', 'b', ' ', 'p', ' ', 'b', ' ', 'b'],
+              [' ', 'b', ' ', 'b', ' ', 'b', ' ', 'b'],
                #0    1    2    3    4    5    6    7 
 ]
 
@@ -16,7 +16,8 @@ def pedras_brancas_possiveis_de_mover_sem_comer(matriz):
     matriz = list(matriz)
     
     pedras_brancas= list()
-    
+    posicoes_possiveis_das_damas_brancas = list()
+
     posicoes_possiveis_das_brancas = list()
     for linha in range(len(matriz)):
         for coluna in range(len(matriz)):
@@ -25,11 +26,7 @@ def pedras_brancas_possiveis_de_mover_sem_comer(matriz):
                 if coluna != 7 and linha != 0 :
                     if matriz[linha-1][coluna+1] == ' ':
                         
-                        conjunto_de_pedras_posivel_jogada = linha, coluna
-                        
-                        conjunto_de_jogadas = linha-1,coluna+1
-                        if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                            posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+                        conjunto_de_pedras_posivel_jogada = linha, coluna                        
                             
                         if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
                             pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
@@ -43,13 +40,30 @@ def pedras_brancas_possiveis_de_mover_sem_comer(matriz):
                         conjunto_de_pedras_posivel_jogada = linha, coluna
                         
                         
-                        conjunto_de_jogadas = linha-1,coluna-1
-                        if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                            posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
-                            
+                        
                         if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
                             pedras_brancas.append(conjunto_de_pedras_posivel_jogada)                
+            elif matriz[linha][coluna] == 'B':       
+                linha1=linha
+                coluna1 = coluna 
+                while matriz[linha1][coluna1] == 'B' or matriz[linha1][coluna1] == ' ':
                     
+                    if matriz[linha1][coluna1] == ' ':#subir para direita
+                        
+                        conjunto_de_damas_posivel_jogada = linha, coluna
+                        
+                        conjunto_de_jogadas = linha1,coluna1
+                        if conjunto_de_jogadas  not in  posicoes_possiveis_das_damas_brancas:
+                            posicoes_possiveis_das_damas_brancas.append(conjunto_de_jogadas)
+                            
+                        if conjunto_de_damas_posivel_jogada not in pedras_brancas:
+                            pedras_brancas.append(conjunto_de_damas_posivel_jogada)
+                        
+                        if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                            break
+                        
+                    linha1-=1
+                    coluna1+=1
                         
                         
                         
@@ -59,7 +73,6 @@ def posiçoes_possiveis_brancas(matriz,posçoes_da_pedra):
     
     matriz = list(matriz)
     linha , coluna = posçoes_da_pedra
-    
     posicoes_possiveis_das_brancas = list()
     
     if matriz[linha][coluna] == 'b':# posiçao de todas as brancas
@@ -81,6 +94,25 @@ def posiçoes_possiveis_brancas(matriz,posçoes_da_pedra):
                 conjunto_de_jogadas = linha-1,coluna-1
                 if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
                     posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+    elif matriz[linha][coluna] == 'B':
+        linha1=linha
+        coluna1 = coluna 
+        while matriz[linha1][coluna1] == 'B' or matriz[linha1][coluna1] == ' ':
+            
+            if matriz[linha1][coluna1] == ' ':#subir para direita
+                
+
+                
+                conjunto_de_jogadas = linha1,coluna1
+                if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
+                    posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+
+                
+                if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                    break
+                
+            linha1-=1
+            coluna1+=1
     else:
         print("erro essa pedra nao é branca")
         exit()             
@@ -403,10 +435,57 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
     return (pedras_pretas_posisao_de_comer,pedras_brancas_para_apagar)
 
 def posiçao_das_damas_brancas(matriz):
-    pass
+    matriz = list(matriz)
+    
+    damas_brancas= list()
+    
+    posicoes_possiveis_das_damas_brancas = list()
+    for linha in range(len(matriz)):
+        for coluna in range(len(matriz)):
+            if matriz[linha][coluna] == 'B':# posiçao de todas as brancas
+                linha1 = linha
+                coluna1 = coluna
+
+                while (linha1 != 0 and linha1 !=7) or (coluna1 != 0 and coluna1 !=7):
+                    if matriz[linha1][coluna1] == ' ':#subir para direita
+                        
+                        conjunto_de_damas_posivel_jogada = linha, coluna
+                        
+                        conjunto_de_jogadas = linha1,coluna1
+                        if conjunto_de_jogadas  not in  posicoes_possiveis_das_damas_brancas:
+                            posicoes_possiveis_das_damas_brancas.append(conjunto_de_jogadas)
+                            
+                        if conjunto_de_damas_posivel_jogada not in pedras_brancas:
+                            pedras_brancas.append(conjunto_de_damas_posivel_jogada)
+                    else:
+                        break
+                        
+                    linha1-=1
+                    coluna1+=1
+                
+                        
+                            
+                # if coluna != 0 and linha != 0 :
+                #     if matriz[linha-1][coluna-1] == ' ':
+                        
+                #         conjunto_de_pedras_posivel_jogada = linha, coluna
+                        
+                        
+                #         conjunto_de_jogadas = linha-1,coluna-1
+                #         if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
+                #             posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+                            
+                #         if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
+                #             pedras_brancas.append(conjunto_de_pedras_posivel_jogada)                
+                    
+                        
+                        
+                        
+    return pedras_brancas
 
 def comer_para_as_damas_brancas(matriz):
     pass
+
 def posiçao_das_damas_pretas(matriz):
     pass
 
@@ -433,7 +512,6 @@ while True:
     os.system("cls")
     print(f"-------------------------------------------")
     print(f"{matriz1[0]}\n{matriz1[1]}\n{matriz1[2]}\n{matriz1[3]}\n{matriz1[4]}\n{matriz1[5]}\n{matriz1[6]}\n{matriz1[7]}\n")
-    print(pedra_para_comer_preta)
     if turno %2 ==0:
         if len(pedra_para_comer_branca) ==0:
             
