@@ -45,70 +45,74 @@ def pedras_brancas_possiveis_de_mover_sem_comer(matriz):
                           
                 linha1 = linha2 = linha3 = linha4 =linha
                 coluna1 = coluna2 = coluna3 = coluna4 = coluna 
+                
+                if linha1 >0 and coluna1 <7:#subir para direita
+                    while matriz[linha1][coluna1] == 'B' or matriz[linha1][coluna1] == ' ':#subir para direita
 
-                while matriz[linha1][coluna1] == 'B' or matriz[linha1][coluna1] == ' ':
+                        if matriz[linha1][coluna1] == ' ':#subir para direita
 
-                    if matriz[linha1][coluna1] == ' ':#subir para direita
+                            conjunto_de_pedras_posivel_jogada = linha, coluna
+                                
+                            if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
+                                pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
 
-                        conjunto_de_pedras_posivel_jogada = linha, coluna
                             
-                        if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
-                            pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
+                            if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                                break
+                            
+                        linha1-=1
+                        coluna1+=1
+                if linha2 >0 and coluna2 >0 :#subir para esqurda
+                    while matriz[linha2][coluna2] == 'B' or matriz[linha2][coluna2] == ' ':#subir para esqurda
 
-                        
-                        if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
-                            break
-                        
-                    linha1-=1
-                    coluna1+=1
-                while matriz[linha2][coluna2] == 'B' or matriz[linha2][coluna2] == ' ':
+                        if matriz[linha2][coluna2] == ' ':#subir para esqurda
 
-                    if matriz[linha2][coluna2] == ' ':#subir para esqurda
+                            
+                            conjunto_de_pedras_posivel_jogada = linha, coluna                       
+                            
+                            if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
+                                pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
 
-                        
-                        conjunto_de_pedras_posivel_jogada = linha, coluna                       
-                        
-                        if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
-                            pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
+                            
+                            if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
+                                break
+                            
+                        linha2-=1
+                        coluna2-=1
+                if linha3 <7 and coluna3 >0 :#baixo para esqurda
+                    while matriz[linha3][coluna3] == 'B' or matriz[linha3][coluna3] == ' ':#baixo para esqurda
 
-                        
-                        if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
-                            break
-                        
-                    linha2-=1
-                    coluna2-=1
-                while matriz[linha3][coluna3] == 'B' or matriz[linha3][coluna3] == ' ':
+                        if matriz[linha3][coluna3] == ' ':#baixo para esqurda
+                            
 
-                    if matriz[linha3][coluna3] == ' ':#baixo para esqurda
-                        
+                            conjunto_de_pedras_posivel_jogada = linha, coluna
+                            
+                            
+                            if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
+                                pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
 
-                        conjunto_de_pedras_posivel_jogada = linha, coluna
-                        
-                        
-                        if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
-                            pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
+                            
+                            if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
+                                break
+                            
+                        linha3+=1
+                        coluna3-=1
+                if linha4 <7 and coluna4 <7 :#baixo para direita
+                    while matriz[linha4][coluna4] == 'B' or matriz[linha4][coluna4] == ' ':#baixo para direita
 
-                        
-                        if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
-                            break
-                        
-                    linha3+=1
-                    coluna3-=1
-                while matriz[linha4][coluna4] == 'B' or matriz[linha4][coluna4] == ' ':
+                        if matriz[linha4][coluna4] == ' ':#baixo para direita
+                            
+                            conjunto_de_pedras_posivel_jogada = linha, coluna
+                            
+                            if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
+                                pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
 
-                    if matriz[linha4][coluna4] == ' ':#baixo para direita
-                        
-                        conjunto_de_pedras_posivel_jogada = linha, coluna
-                        
-                        if conjunto_de_pedras_posivel_jogada not in pedras_brancas:
-                            pedras_brancas.append(conjunto_de_pedras_posivel_jogada)
-
-                        
-                        if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
-                            break
-                        
-                    linha4+=1
-                    coluna4+=1
+                            
+                            if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
+                                break
+                            
+                        linha4+=1
+                        coluna4+=1
                         
                         
                         
@@ -143,70 +147,74 @@ def posiçoes_possiveis_brancas(matriz,posçoes_da_pedra):
           
         linha1 = linha2 = linha3 = linha4 =linha
         coluna1 = coluna2 = coluna3 = coluna4 = coluna 
+        if linha1 >0 and coluna1 <7:
+            while matriz[linha1][coluna1] == 'B' or matriz[linha1][coluna1] == ' ':
 
-        while matriz[linha1][coluna1] == 'B' or matriz[linha1][coluna1] == ' ':
+                if matriz[linha1][coluna1] == ' ':#subir para direita
+                    
 
-            if matriz[linha1][coluna1] == ' ':#subir para direita
-                
+                    
+                    conjunto_de_jogadas = linha1,coluna1
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
+                        posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
 
-                
-                conjunto_de_jogadas = linha1,coluna1
-                if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                    posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+                    
+                    if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                        break
+                    
+                linha1-=1
+                coluna1+=1
+        if linha2 >0 and coluna2 >0 :
+            while matriz[linha2][coluna2] == 'B' or matriz[linha2][coluna2] == ' ':
 
-                
-                if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
-                    break
-                
-            linha1-=1
-            coluna1+=1
-        while matriz[linha2][coluna2] == 'B' or matriz[linha2][coluna2] == ' ':
+                if matriz[linha2][coluna2] == ' ':#subir para esqurda
 
-            if matriz[linha2][coluna2] == ' ':#subir para esqurda
+                    
+                    conjunto_de_jogadas = linha2,coluna2
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
+                        posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
 
-                
-                conjunto_de_jogadas = linha2,coluna2
-                if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                    posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+                    
+                    if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
+                        break
+                    
+                linha2-=1
+                coluna2-=1
+        if linha3 <7 and coluna3 >0 :
+            while matriz[linha3][coluna3] == 'B' or matriz[linha3][coluna3] == ' ':
 
-                
-                if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
-                    break
-                
-            linha2-=1
-            coluna2-=1
-        while matriz[linha3][coluna3] == 'B' or matriz[linha3][coluna3] == ' ':
+                if matriz[linha3][coluna3] == ' ':#baixo para esqurda
+                    
 
-            if matriz[linha3][coluna3] == ' ':#baixo para esqurda
-                
+                    conjunto_de_jogadas = linha3,coluna3
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
+                        posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
 
-                conjunto_de_jogadas = linha3,coluna3
-                if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                    posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
+                    
+                    if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
+                        break
+                    
+                linha3+=1
+                coluna3-=1
+        if linha4 <7 and coluna4 <7 :
+            
+            while matriz[linha4][coluna4] == 'B' or matriz[linha4][coluna4] == ' ':
 
-                
-                if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
-                    break
-                
-            linha3+=1
-            coluna3-=1
-        while matriz[linha4][coluna4] == 'B' or matriz[linha4][coluna4] == ' ':
+                if matriz[linha4][coluna4] == ' ':#baixo para direita
+                    
 
-            if matriz[linha4][coluna4] == ' ':#baixo para direita
-                
+                    
+                    conjunto_de_jogadas = linha4,coluna4
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
+                        posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
 
-                
-                conjunto_de_jogadas = linha4,coluna4
-                if conjunto_de_jogadas  not in  posicoes_possiveis_das_brancas:
-                    posicoes_possiveis_das_brancas.append(conjunto_de_jogadas)
-
-                
-                if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
-                    break
-                
-            linha4+=1
-            coluna4+=1
-    else:
+                    
+                    if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
+                        break
+                    
+                linha4+=1
+                coluna4+=1
+    else:   
         print("erro essa pedra nao é branca")
         exit()             
                                        
@@ -253,7 +261,81 @@ def pedras_pretas_possiveis_de_mover_sem_comer(matriz):
                             posicoes_possiveis_das_pretas.append(conjunto_de_jogadas) 
 
                         if conjunto_de_pedras_posivel_jogada not in pedras_pretas:
-                            pedras_pretas.append(conjunto_de_pedras_posivel_jogada)                            
+                            pedras_pretas.append(conjunto_de_pedras_posivel_jogada)        
+            elif matriz1[linha][coluna] == 'P':                           
+               
+                linha1 = linha2 = linha3 = linha4 =linha
+                coluna1 = coluna2 = coluna3 = coluna4 = coluna
+                       
+                 
+                if linha1 >0 and coluna1 <7:
+                    while matriz[linha1][coluna1] == 'P' or matriz[linha1][coluna1] == ' ':#subir para direita
+
+                        if matriz[linha1][coluna1] == ' ':
+
+                            conjunto_de_pedras_posivel_jogada = linha, coluna
+                                
+                            if conjunto_de_pedras_posivel_jogada not in pedras_pretas:
+                                pedras_pretas.append(conjunto_de_pedras_posivel_jogada)
+
+                            
+                            if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                                break
+                            
+                        linha1-=1
+                        coluna1+=1
+                if linha2 >0 and coluna2 >0:
+                    while matriz[linha2][coluna2] == 'P' or matriz[linha2][coluna2] == ' ':#subir para esqurda
+
+                        if matriz[linha2][coluna2] == ' ':
+
+                            
+                            conjunto_de_pedras_posivel_jogada = linha, coluna                       
+                            
+                            if conjunto_de_pedras_posivel_jogada not in pedras_pretas:
+                                pedras_pretas.append(conjunto_de_pedras_posivel_jogada)
+
+                            
+                            if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
+                                break
+                            
+                        linha2-=1
+                        coluna2-=1
+                if linha3 <7 and coluna3 >0:
+                    while matriz[linha3][coluna3] == 'P' or matriz[linha3][coluna3] == ' ':
+
+                        if matriz[linha3][coluna3] == ' ':#baixo para esqurda
+                            
+
+                            conjunto_de_pedras_posivel_jogada = linha, coluna
+                            
+                            
+                            if conjunto_de_pedras_posivel_jogada not in pedras_pretas:
+                                pedras_pretas.append(conjunto_de_pedras_posivel_jogada)
+
+                            
+                            if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
+                                break
+                            
+                        linha3+=1
+                        coluna3-=1
+                if linha4 <7 and coluna4 <7:
+                    while matriz[linha4][coluna4] == 'P' or matriz[linha4][coluna4] == ' ':
+                        
+
+                        if matriz[linha4][coluna4] == ' ':#baixo para direita
+                            
+                            conjunto_de_pedras_posivel_jogada = linha, coluna
+                            
+                            if conjunto_de_pedras_posivel_jogada not in pedras_pretas:
+                                pedras_pretas.append(conjunto_de_pedras_posivel_jogada)
+
+                            
+                            if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
+                                break
+                            
+                        linha4+=1
+                        coluna4+=1
                             
                                
     return pedras_pretas
@@ -283,8 +365,80 @@ def posiçoes_possiveis_pretas(matriz,posçoes_da_pedra):
                 conjunto_de_jogadas = linha+1,coluna-1
                 if conjunto_de_jogadas  not in  posicoes_possiveis_das_pretas:
                     posicoes_possiveis_das_pretas.append(conjunto_de_jogadas)
+    elif matriz[linha][coluna] == 'P': 
+          
+        linha1 = linha2 = linha3 = linha4 =linha
+        coluna1 = coluna2 = coluna3 = coluna4 = coluna 
+        
+        if linha1 >0 and coluna1 <7:
+
+            while matriz[linha1][coluna1] == 'P' or matriz[linha1][coluna1] == ' ':
+
+                if matriz[linha1][coluna1] == ' ':#subir para direita
+                    
+
+                    
+                    conjunto_de_jogadas = linha1,coluna1
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_pretas:
+                        posicoes_possiveis_das_pretas.append(conjunto_de_jogadas)
+
+                    
+                    if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                        break
+                    
+                linha1-=1
+                coluna1+=1
+        if linha2 >0 and coluna2 >0:
+            while matriz[linha2][coluna2] == 'P' or matriz[linha2][coluna2] == ' ':
+
+                if matriz[linha2][coluna2] == ' ':#subir para esqurda
+
+                    
+                    conjunto_de_jogadas = linha2,coluna2
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_pretas:
+                        posicoes_possiveis_das_pretas.append(conjunto_de_jogadas)
+
+                    
+                    if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
+                        break
+                    
+                linha2-=1
+                coluna2-=1
+        if linha3 <7 and coluna3 >0:
+            while matriz[linha3][coluna3] == 'P' or matriz[linha3][coluna3] == ' ':
+
+                if matriz[linha3][coluna3] == ' ':#baixo para esqurda
+                    
+
+                    conjunto_de_jogadas = linha3,coluna3
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_pretas:
+                        posicoes_possiveis_das_pretas.append(conjunto_de_jogadas)
+
+                    
+                    if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
+                        break
+                    
+                linha3+=1
+                coluna3-=1
+        if linha4 <7 and coluna4 <7:
+            while matriz[linha4][coluna4] == 'P' or matriz[linha4][coluna4] == ' ':
+
+                if matriz[linha4][coluna4] == ' ':#baixo para direita
+                    
+
+                    
+                    conjunto_de_jogadas = linha4,coluna4
+                    if conjunto_de_jogadas  not in  posicoes_possiveis_das_pretas:
+                        posicoes_possiveis_das_pretas.append(conjunto_de_jogadas)
+
+                    
+                    if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
+                        break
+                    
+                linha4+=1
+                coluna4+=1
     else:
-        print("erro essa pedra nao é branca")
+        print("erro essa pedra nao é pretas")
         exit()             
                                        
                  
@@ -359,7 +513,7 @@ def pode_comer_para_brancas(matriz):
                 while True:#subir para esquerda
                     if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
                             break
-                    if matriz[linha2][coluna2] == 'p':#subir para esquerda       
+                    if matriz[linha2][coluna2] in 'pP':#subir para esquerda       
                         if matriz[linha2-1][coluna2-1] == ' ':               
                             
                             
@@ -374,7 +528,7 @@ def pode_comer_para_brancas(matriz):
                 while True:#decer para esquerda
                     if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
                             break
-                    if matriz[linha3][coluna3] == 'p':#decer para esqerda      
+                    if matriz[linha3][coluna3] in 'pP':#decer para esqerda      
                         if matriz[linha3+1][coluna3-1] == ' ':               
                             
                             
@@ -389,7 +543,7 @@ def pode_comer_para_brancas(matriz):
                 while True:#decer para direita
                     if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
                             break
-                    if matriz[linha4][coluna4] == 'p':#subir para direita       
+                    if matriz[linha4][coluna4] in 'pP':#subir para direita       
                         if matriz[linha4+1][coluna4+1] == ' ':               
                             
                             
@@ -477,9 +631,8 @@ def posiçoes_possiveis_para_comer_brancas(matriz,posçoes_da_pedra):
                 while True:#subir para direita 
                     if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
                             break
-                    if matriz[linha1][coluna1] == 'p':#subir para direita       
+                    if matriz[linha1][coluna1] in 'pP':#subir para direita       
                         if matriz[linha1-1][coluna1+1] == ' ':               
-                            print('la')
                             
                             conjunto_de_posiçoes_pedras_posivel_de_comer = linha1-1, coluna1+1
                         
@@ -498,43 +651,56 @@ def posiçoes_possiveis_para_comer_brancas(matriz,posçoes_da_pedra):
                 while True:#subir para esquerda
                     if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
                             break
-                    if matriz[linha2][coluna2] == 'p':#subir para esquerda       
+                    if matriz[linha2][coluna2] in 'pP':#subir para esquerda       
                         if matriz[linha2-1][coluna2-1] == ' ':               
                             
-                            
-                            conjunto_de_pedras_posivel_de_comer = linha,coluna
-                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_brancas_possiveis_de_comer:
-                                pedras_brancas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
-
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha2-1, coluna2-1
                         
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_brancas_posisao_de_comer:
+                                pedras_brancas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha2, coluna2
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_pretas_para_apagar:
+                                pedras_pretas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+        
                         
                     linha2-=1
                     coluna2-=1
                 while True:#decer para esquerda
                     if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
                             break
-                    if matriz[linha3][coluna3] == 'p':#decer para esqerda      
+                    if matriz[linha3][coluna3] in 'pP':#decer para esqerda      
                         if matriz[linha3+1][coluna3-1] == ' ':               
                             
-                            
-                            conjunto_de_pedras_posivel_de_comer = linha,coluna
-                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_brancas_possiveis_de_comer:
-                                pedras_brancas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
-
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha3+1, coluna3-1
                         
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_brancas_posisao_de_comer:
+                                pedras_brancas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha3, coluna3
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_pretas_para_apagar:
+                                pedras_pretas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+
                         
                     linha3+=1
                     coluna3-=1
                 while True:#decer para direita
                     if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
                             break
-                    if matriz[linha4][coluna4] == 'p':#subir para direita       
+                    if matriz[linha4][coluna4] in 'pP':#subir para direita       
                         if matriz[linha4+1][coluna4+1] == ' ':               
-                            
-                            
-                            conjunto_de_pedras_posivel_de_comer = linha,coluna
-                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_brancas_possiveis_de_comer:
-                                pedras_brancas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha4+1, coluna4+1
+                        
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_brancas_posisao_de_comer:
+                                pedras_brancas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha4, coluna4
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_pretas_para_apagar:
+                                pedras_pretas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+
 
                         
                         
@@ -555,7 +721,7 @@ def pode_comer_para_pretas(matriz):
             if matriz[linha][coluna] == 'p':# posiçao de todas as pretas
 
                 if coluna != 7 and linha != 0 :
-                    if matriz[linha-1][coluna+1] == 'b':
+                    if matriz[linha-1][coluna+1] in 'Bb':
                         if coluna != 6 and linha != 1:
                             if matriz[linha-2][coluna+2] == ' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
@@ -564,7 +730,7 @@ def pode_comer_para_pretas(matriz):
                                     pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
       
                 if coluna != 0 and linha != 0:
-                    if matriz[linha-1][coluna-1] == 'b':
+                    if matriz[linha-1][coluna-1] in 'Bb':
                         if coluna != 1 and linha != 1:
                             if matriz[linha-2][coluna-2] == ' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
@@ -573,7 +739,7 @@ def pode_comer_para_pretas(matriz):
                                     pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
                             
                 if coluna != 7 and linha != 7:
-                    if matriz[linha+1][coluna+1] == 'b':
+                    if matriz[linha+1][coluna+1] in 'Bb':
                         if coluna != 6 and linha != 6:
                             if matriz[linha+2][coluna+2] == ' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
@@ -582,13 +748,78 @@ def pode_comer_para_pretas(matriz):
                                     pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
                             
                 if coluna != 0 and linha != 7:
-                    if matriz[linha+1][coluna-1] == 'b':
+                    if matriz[linha+1][coluna-1] in 'Bb':
                         if coluna != 1 and linha != 6:
                             if matriz[linha+2][coluna-2] ==' ':
                                 conjunto_de_pedras_posivel_de_comer = linha, coluna
 
                                 if conjunto_de_pedras_posivel_de_comer not in pedras_pretas_possiveis_de_comer:
                                     pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
+            elif matriz[linha][coluna] == 'P':
+                linha1 = linha2 = linha3 = linha4 =linha
+                coluna1 = coluna2 = coluna3 = coluna4 = coluna 
+
+                while True:#subir para direita 
+                    if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                            break
+                    if matriz[linha1][coluna1] in 'Bb':#subir para direita       
+                        if matriz[linha1-1][coluna1+1] == ' ':               
+                            
+                            
+                            conjunto_de_pedras_posivel_de_comer = linha,coluna
+                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_pretas_possiveis_de_comer:
+                                pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
+
+                        
+                        
+                    linha1-=1
+                    coluna1+=1
+                while True:#subir para esquerda
+                    if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
+                            break
+                    if matriz[linha2][coluna2] in 'Bb':#subir para esquerda       
+                        if matriz[linha2-1][coluna2-1] == ' ':               
+                            
+                            
+                            conjunto_de_pedras_posivel_de_comer = linha,coluna
+                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_pretas_possiveis_de_comer:
+                                pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
+
+                        
+                        
+                    linha2-=1
+                    coluna2-=1
+                while True:#decer para esquerda
+                    if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
+                            break
+                    if matriz[linha3][coluna3] in 'Bb':#decer para esqerda      
+                        if matriz[linha3+1][coluna3-1] == ' ':               
+                            
+                            
+                            conjunto_de_pedras_posivel_de_comer = linha,coluna
+                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_pretas_possiveis_de_comer:
+                                pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
+
+                        
+                        
+                    linha3+=1
+                    coluna3-=1
+                while True:#decer para direita
+                    if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
+                            break
+                    if matriz[linha4][coluna4] in 'Bb':#subir para direita       
+                        if matriz[linha4+1][coluna4+1] == ' ':               
+                            
+                            
+                            conjunto_de_pedras_posivel_de_comer = linha,coluna
+                            if conjunto_de_pedras_posivel_de_comer  not in  pedras_pretas_possiveis_de_comer:
+                                pedras_pretas_possiveis_de_comer.append(conjunto_de_pedras_posivel_de_comer)
+
+                        
+                        
+                    linha4+=1
+                    coluna4+=1   
+                
                 
     return pedras_pretas_possiveis_de_comer  
         
@@ -603,7 +834,7 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
     if matriz[linha][coluna] == 'p':# posiçao de todas as brancas
 
         if coluna != 7 and linha != 0 :
-            if matriz[linha-1][coluna+1] == 'b':
+            if matriz[linha-1][coluna+1] in 'bB':
                 if coluna != 6 and linha != 1:
                     if matriz[linha-2][coluna+2] == ' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha-2, coluna+2
@@ -617,7 +848,7 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
                             pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
 
         if coluna != 0 and linha != 0:
-            if matriz[linha-1][coluna-1] == 'b':
+            if matriz[linha-1][coluna-1] in 'bB':
                 if coluna != 1 and linha != 1:
                     if matriz[linha-2][coluna-2] == ' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha-2, coluna-2
@@ -631,7 +862,7 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
                             pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
                     
         if coluna != 7 and linha != 7:
-            if matriz[linha+1][coluna+1] == 'b':
+            if matriz[linha+1][coluna+1] in 'bB':
                 if coluna != 6 and linha != 6:
                     if matriz[linha+2][coluna+2] == ' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha+2, coluna+2
@@ -645,7 +876,7 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
                             pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
                     
         if coluna != 0 and linha != 7:
-            if matriz[linha+1][coluna-1] == 'b':
+            if matriz[linha+1][coluna-1] in 'bB':
                 if coluna != 1 and linha != 6:
                     if matriz[linha+2][coluna-2] ==' ':
                         conjunto_de_posiçoes_pedras_posivel_de_comer = linha+2, coluna-2
@@ -657,7 +888,90 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
 
                         if conjunto_de_posiçoes_pedras_para_apagar not in pedras_brancas_para_apagar:
                             pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+    elif matriz[linha][coluna] == 'P':
+                linha1 = linha2 = linha3 = linha4 =linha
+                coluna1 = coluna2 = coluna3 = coluna4 = coluna 
+
+                while True:#subir para direita 
+                    if not ( (linha1 != 0 and linha1 !=7) and (coluna1 != 0 and coluna1 !=7)) :
+                            break
+                    if matriz[linha1][coluna1] in 'Bb':#subir para direita       
+                        if matriz[linha1-1][coluna1+1] == ' ':               
                             
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha1-1, coluna1+1
+                        
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_pretas_posisao_de_comer:
+                                pedras_pretas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha1, coluna1
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_brancas_para_apagar:
+                                pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+
+                        
+                        
+                    linha1-=1
+                    coluna1+=1
+                while True:#subir para esquerda
+                    if not ( (linha2 != 0 and linha2 !=7) and (coluna2 != 0 and coluna2 !=7)) :
+                            break
+                    if matriz[linha2][coluna2] in 'Bb':#subir para esquerda       
+                        if matriz[linha2-1][coluna2-1] == ' ':               
+                            
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha2-1, coluna2-1
+                        
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_pretas_posisao_de_comer:
+                                pedras_pretas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha2, coluna2
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_brancas_para_apagar:
+                                pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+        
+                        
+                    linha2-=1
+                    coluna2-=1
+                while True:#decer para esquerda
+                    if not ( (linha3 != 0 and linha3 !=7) and (coluna3 != 0 and coluna3 !=7)) :
+                            break
+                    if matriz[linha3][coluna3] in 'Bb':#decer para esqerda      
+                        if matriz[linha3+1][coluna3-1] == ' ':               
+                            
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha3+1, coluna3-1
+                        
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_pretas_posisao_de_comer:
+                                pedras_pretas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha3, coluna3
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_brancas_para_apagar:
+                                pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+
+                        
+                    linha3+=1
+                    coluna3-=1
+                while True:#decer para direita
+                    if not ( (linha4 != 0 and linha4 !=7) and (coluna4 != 0 and coluna4 !=7)) :
+                            break
+                    if matriz[linha4][coluna4] in 'Bb':#subir para direita       
+                        if matriz[linha4+1][coluna4+1] == ' ':               
+                            conjunto_de_posiçoes_pedras_posivel_de_comer = linha4+1, coluna4+1
+                        
+                            if conjunto_de_posiçoes_pedras_posivel_de_comer not in pedras_pretas_posisao_de_comer:
+                                pedras_pretas_posisao_de_comer.append(conjunto_de_posiçoes_pedras_posivel_de_comer)
+                                
+                            conjunto_de_posiçoes_pedras_para_apagar = linha4, coluna4
+
+                            if conjunto_de_posiçoes_pedras_para_apagar not in pedras_brancas_para_apagar:
+                                pedras_brancas_para_apagar.append(conjunto_de_posiçoes_pedras_para_apagar)
+
+
+                        
+                        
+                    linha4+=1
+                    coluna4+=1   
+                
+                      
                         
         
     return (pedras_pretas_posisao_de_comer,pedras_brancas_para_apagar)
@@ -679,7 +993,6 @@ while True:
          
     pedra_para_comer_preta = pode_comer_para_pretas(matriz1)
     pedra_para_comer_branca = pode_comer_para_brancas(matriz1)
-    if ja_comeu and (len(pedra_para_comer_preta)==0 or len(pedra_para_comer_branca)==0): turno+=1;ja_comeu = False ;continue
 
     
     print(f"-------------------------------------------")
@@ -706,8 +1019,10 @@ while True:
             index_para_pegar_a_jogada= int(input(">>"))
             jogada_escolhida_pelo_jogador_1=posiçao_das_posiveis_jogadas[index_para_pegar_a_jogada]
             
+            pedra_branca = 'b' if matriz1[pedra_escolhida_pelo_jogador_1[0]][pedra_escolhida_pelo_jogador_1[1]]== 'b' else 'B'
+            
             matriz1[pedra_escolhida_pelo_jogador_1[0]][pedra_escolhida_pelo_jogador_1[1]]= ' '
-            matriz1[jogada_escolhida_pelo_jogador_1[0]][jogada_escolhida_pelo_jogador_1[1]]= 'b'
+            matriz1[jogada_escolhida_pelo_jogador_1[0]][jogada_escolhida_pelo_jogador_1[1]]= pedra_branca
 
             turno+=1
     
@@ -730,9 +1045,11 @@ while True:
             jogada_escolhida_pelo_jogador_1_para_comer=posiçao_das_posiveis_jogadas_para_comer[index_para_pegar_a_jogada]
             pedra_escolhida_para_apagar = pedras_pretas_para_apagar[index_para_pegar_a_jogada]
             
+            pedra_branca = 'b' if matriz1[pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_1[0]][pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_1[1]] == 'b' else 'B'
+            
             matriz1[pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_1[0]][pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_1[1]]= ' '
             matriz1[pedra_escolhida_para_apagar[0]][pedra_escolhida_para_apagar[1]]= ' '
-            matriz1[jogada_escolhida_pelo_jogador_1_para_comer[0]][jogada_escolhida_pelo_jogador_1_para_comer[1]]= 'b'
+            matriz1[jogada_escolhida_pelo_jogador_1_para_comer[0]][jogada_escolhida_pelo_jogador_1_para_comer[1]]= pedra_branca
             ja_comeu=True
         
             
@@ -759,9 +1076,9 @@ while True:
             cont = 0 
             index_para_pegar_a_jogada= int(input(">>"))
             jogada_escolhida_pelo_jogador_2=posiçao_das_posiveis_jogadas[index_para_pegar_a_jogada]
-            
+            pedra_preta ='p' if matriz1[pedra_escolhida_pelo_jogador_2[0]][pedra_escolhida_pelo_jogador_2[1]] == 'p' else 'P'
             matriz1[pedra_escolhida_pelo_jogador_2[0]][pedra_escolhida_pelo_jogador_2[1]]= ' '
-            matriz1[jogada_escolhida_pelo_jogador_2[0]][jogada_escolhida_pelo_jogador_2[1]]= 'p'
+            matriz1[jogada_escolhida_pelo_jogador_2[0]][jogada_escolhida_pelo_jogador_2[1]]= pedra_preta
 
             turno+=1
 
@@ -786,10 +1103,10 @@ while True:
             index_para_pegar_a_jogada= int(input(">>"))
             jogada_escolhida_pelo_jogador_2_para_comer=posiçao_das_posiveis_jogadas_para_comer_pretas[index_para_pegar_a_jogada]
             pedra_escolhida_para_apagar = pedras_brancas_para_apagar[index_para_pegar_a_jogada]
-            
+            pedra_preta = 'p' if matriz1[pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_2[0]][pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_2[1]] == 'p' else 'P'
             matriz1[pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_2[0]][pedra_com_posibilidade_de_comer_escolhida_pelo_jogador_2[1]]= ' '
             matriz1[pedra_escolhida_para_apagar[0]][pedra_escolhida_para_apagar[1]]= ' '
-            matriz1[jogada_escolhida_pelo_jogador_2_para_comer[0]][jogada_escolhida_pelo_jogador_2_para_comer[1]]= 'p'
+            matriz1[jogada_escolhida_pelo_jogador_2_para_comer[0]][jogada_escolhida_pelo_jogador_2_para_comer[1]]= pedra_preta
             ja_comeu=True
 
     
