@@ -1,12 +1,12 @@
 import os 
-matriz1 = [   ['p', ' ', 'p', ' ', 'p', ' ', 'p', ' '],
-              [' ', 'p', ' ', 'p', ' ', 'p', ' ', 'p'],
-              ['p', ' ', 'p', ' ', 'p', ' ', 'p', ' '],
+matriz1 = [   [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
               [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
               [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
-              [' ', 'b', ' ', 'b', ' ', 'b', ' ', 'b'],
-              ['b', ' ', 'b', ' ', 'b', ' ', 'b', ' '],
-              [' ', 'b', ' ', 'b', ' ', 'b', ' ', 'b'],
+              [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+              [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+              [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+              [' ', 'p', ' ', ' ', ' ', ' ', ' ', ' '],
+              ['b', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
                #0    1    2    3    4    5    6    7 
 ]
 
@@ -222,6 +222,7 @@ def posiçoes_possiveis_brancas(matriz,posçoes_da_pedra):
                         
     return posicoes_possiveis_das_brancas
     
+
 def pedras_pretas_possiveis_de_mover_sem_comer(matriz):
     
     matriz = list(matriz)
@@ -999,7 +1000,7 @@ def posiçoes_possiveis_para_comer_pretas(matriz,posçoes_da_pedra):
 
 
 ja_comeu=False
-turno = 0
+turno = 1
 cont = 0
 
 
@@ -1098,7 +1099,9 @@ while True:
             cont = 0 
             index_para_pegar_a_jogada= int(input(">>"))
             jogada_escolhida_pelo_jogador_2=posiçao_das_posiveis_jogadas[index_para_pegar_a_jogada]
+            
             pedra_preta ='p' if matriz1[pedra_escolhida_pelo_jogador_2[0]][pedra_escolhida_pelo_jogador_2[1]] == 'p' else 'P'
+            
             matriz1[pedra_escolhida_pelo_jogador_2[0]][pedra_escolhida_pelo_jogador_2[1]]= ' '
             matriz1[jogada_escolhida_pelo_jogador_2[0]][jogada_escolhida_pelo_jogador_2[1]]= pedra_preta
 
