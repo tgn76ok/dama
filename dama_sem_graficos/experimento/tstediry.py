@@ -1,0 +1,1 @@
+inicio = {'thiago':['igor','ian']}
